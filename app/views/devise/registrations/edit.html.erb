@@ -4,6 +4,21 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <div><%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %></div>
+    </div>
+    
+  <div class="field">
+    <div><%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %> </div>
+    <div><%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> </div>
+    </div>
+    
+  <div class="field">
+    <div><%= f.label :date_of_birth %><br />
+    <%= f.date_select :date_of_birth %></div>
+    </div>
+    
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
