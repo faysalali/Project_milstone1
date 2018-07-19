@@ -26,20 +26,16 @@
       </ul>
       <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to edit_user_registration_path do %><span class="glyphicon glyphicon-user"></span> Edit Profile 
+          <% end %>  
         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to new_user_registration_path do %>
-        <span class="glyphicon glyphicon-user"></span> Sign Up
-        <% end %>
-        </li>
-        <li><%= link_to new_user_session_path do %>
-          <span class="glyphicon glyphicon-user"></span>Login
-        <% end %>
-        </li>
-       <!-- // <li><a href="<%= new_user_registration_path %>"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-      //<li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+          <li><%= link_to new_user_registration_path do %><span class="glyphicon glyphicon-user"></span> Sign Up
+          <% end %></li>
+          <li><%= link_to new_user_session_path do %><span class="glyphicon glyphicon-user"></span>Login
+          <% end %></li>
         </ul>
       <% end %>  
     </div>
