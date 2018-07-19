@@ -1,45 +1,48 @@
 <div class="container">
-  <h2>Sign up</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-    <div class="field">
-      <label><b><div><%= f.label :name %></b></label><br />
-      <%= f.text_field :name, autofocus: true %>
-    </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <h2>Sign up</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="field">
+        <label><b><div><%= f.label :name %></b></label><br />
+        <%= f.text_field :name, autofocus: true,class: 'form-control margin-bottom' %>
+      </div>
       
-    <div class="field">
-      <label><b><%= f.label :email %></b></label><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-    
-    <div class="field">
-      <label><b><%= f.label :gender %></b></label><br />
-      <div><%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %> </div>
-      <div><%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> </div>
-    </div>
+      <div class="field">
+        <label><b><%= f.label :email %></b></label><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control margin-bottom' %>
+      </div>
       
-    <div class="field">
-      <label><b><div><%= f.label :date_of_birth %></b></label><br />
-      <%= f.date_select :date_of_birth %>
-    </div>
-    
-    <div class="field">
-      <label><b><%= f.label :password %></label></b>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+      <div class="field">
+        <label><b><%= f.label :gender %></b></label><br />
+        <div><%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %> </div>
+        <div><%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> </div>
+      </div>
+        
+      <div class="field">
+        <label><b><div><%= f.label :date_of_birth%></b></label><br />
+        <%= f.date_select :date_of_birth, :start_year => 1900 %>
+      </div>
+      
+      <div class="field">
+        <label><b><%= f.label :password %></label></b>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control margin-bottom' %>
+      </div>
+      
+      <div class="field">
+        <label><b><%= f.label :password_confirmation%></b></label><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
 
-    <div class="field">
-      <label><b><%= f.label :password_confirmation %></b></label><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <div class="actions">
+       <label><b><%= f.submit "Sign up" %></b></label>
+      </div>
+      <% end -%>
+      <%= render "devise/shared/links" %>
     </div>
-
-    <div class="actions">
-     <label><b><%= f.submit "Sign up" %></b></label>
-    </div>
-    <% end -%>
-  <%= render "devise/shared/links" %>
+  </div>
 </div>
