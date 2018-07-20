@@ -14,3 +14,19 @@
 .margin-bottom {
 margin-bottom:15px;
 }
+.btn.green:not(.btn-outline) {
+    color: #FFF;
+    background-color: #32c5d2;
+    border-color: #32c5d2;
+}
+.btn.red:not(.btn-outline) {
+    color: #FF0000;
+    background-color: #32c5d2;
+    border-color: #32c5d2;
+}
+.btn-xs, .btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
