@@ -9,9 +9,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password, :is_female, :date_of_birth) }
   end
   def after_sign_in_path_for(resource)
-    if resource.admin?
-      admin_root_path
-    end
+    resource.admin? ? admin_root_path : root_path
   end
   
 end

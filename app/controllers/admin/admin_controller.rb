@@ -1,4 +1,4 @@
-class Admin::AdminController < ApplicationController
+class Admin::AdminController < Admin::BaseController
   def index
     @user=User.all
   end
@@ -6,7 +6,7 @@ class Admin::AdminController < ApplicationController
     @user = User.find(params[:id])
     if @user.disable? 
       @user.enable! 
-       redirect_to admin_root_path
+      redirect_to admin_root_path
     else
       @user.disable!
       redirect_to admin_root_path

@@ -3,26 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .style {
-    color: blue;
-    font-size: 60px;
-    margin-top: 40px;
+  color: blue;
+  font-size: 60px;
+  margin-top: 40px;
 }
 .center_div{
-    margin: 0 auto;
-    width:60% /* value of your choice which suits your alignment */
+  margin: 0 auto;
+  width:60% /* value of your choice which suits your alignment */
 }
 .margin-bottom {
-margin-bottom:15px;
+  margin-bottom:15px;
 }
 .btn.green:not(.btn-outline) {
-    color: #FFF;
-    background-color: #32c5d2;
-    border-color: #32c5d2;
+  color: #FFF;
+  background-color: #32c5d2;
+  border-color: #32c5d2;
 }
 .btn.red:not(.btn-outline) {
-    color: #FF0000;
-    background-color: #32c5d2;
-    border-color: #32c5d2;
+  color: #FF0000;
+  background-color: #32c5d2;
+  border-color: #32c5d2;
 }
 .btn-xs, .btn-group-xs > .btn {
   padding: 1px 5px;
