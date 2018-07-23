@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%= render "homepage/header" %>
+<%= render "admintab" %>
 <div class="container">
   <h2>WorkSpace</h2>            
   <table class="table table-bordered">
@@ -10,11 +11,13 @@
         <th>Email</th>
         <th>Gender</th>
         <th>status</th>
+        <th>Manegerial Rights</th>
       </tr>
     </thead>
     <tbody>
       <% @user.each do |user|%>
-        <tr>
+        <% if !user.admin? %>
+          <tr>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <% if user.gender == false %>
@@ -25,18 +28,41 @@
           <% if user.enable? %>
             <td>
               <%= link_to change_status_admin_admin_path(user) do %>
-              <button class="btn btn-xs red" >Disable</button>
+              <button class="btn btn-xs red" >Enable</button>
               <% end %>
             </td>
           <% else %>
             <td>
               <%= link_to change_status_admin_admin_path(user) do %>
-              <button class="btn btn-xs green" >Enable</button>
+              <button class="btn btn-xs green" >Disable</button>
               <% end %>
             </td>
-          <% end %>
-        </tr>
+           <% end %>
+           <%if user.enable? %>
+             <%if user.user? %>
+                <td>
+                <%= link_to promote_to_maneger_admin_admin_path(user) do %>
+                <button class="btn btn-xs green" >Promote to Maneger</button>
+                <% end %>
+                </td>
+             <%else%>
+                <td>
+                <%= link_to promote_to_maneger_admin_admin_path(user) do %>
+                <button class="btn btn-xs red" >Demote to User</button>
+                <% end %>
+                </td>               
+             <% end %>
+           <%else%>
+           <td>
+            <button class="btn btn-xs red" >User Disbale</button>
+           <% end %>
+         </td>
+          </tr>
+        <%end%>
       <% end %>
     </tbody>
   </table>
 </div>
+
+
+

@@ -11,6 +11,11 @@ Rails.application.routes.draw do
         get 'change_status'
       end
     end
+    resources :admin do
+      member do
+        get 'promote_to_maneger'
+      end
+    end
   end
   
 
