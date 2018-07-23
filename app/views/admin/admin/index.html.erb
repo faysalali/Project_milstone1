@@ -10,11 +10,13 @@
         <th>Email</th>
         <th>Gender</th>
         <th>status</th>
+        <th>Maneger</th>
       </tr>
     </thead>
     <tbody>
       <% @user.each do |user|%>
-        <tr>
+        <% if !user.admin? %>
+          <tr>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <% if user.gender == false %>
@@ -34,9 +36,13 @@
               <button class="btn btn-xs green" >Enable</button>
               <% end %>
             </td>
-          <% end %>
+           <% end %>
         </tr>
+        <%end%>
       <% end %>
     </tbody>
   </table>
 </div>
+
+
+
