@@ -13,8 +13,13 @@ class Admin::AdminController < ApplicationController
     end
   end
   def promote_to_maneger
-    @user = User.find(params[:id])
-    if
-    
+    @user_ = User.find(params[:id])
+    if @user_.user?
+      @user_.maneger!
+      redirect_to admin_root_path
+    else
+      @user_.user!
+      redirect_to admin_root_path
+    end
   end
 end

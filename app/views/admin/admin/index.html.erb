@@ -10,7 +10,7 @@
         <th>Email</th>
         <th>Gender</th>
         <th>status</th>
-        <th>Maneger</th>
+        <th>Manegerial Rights</th>
       </tr>
     </thead>
     <tbody>
@@ -27,17 +27,36 @@
           <% if user.enable? %>
             <td>
               <%= link_to change_status_admin_admin_path(user) do %>
-              <button class="btn btn-xs red" >Disable</button>
+              <button class="btn btn-xs red" >Enable</button>
               <% end %>
             </td>
           <% else %>
             <td>
               <%= link_to change_status_admin_admin_path(user) do %>
-              <button class="btn btn-xs green" >Enable</button>
+              <button class="btn btn-xs green" >Disable</button>
               <% end %>
             </td>
            <% end %>
-        </tr>
+           <%if user.enable? %>
+             <%if user.user? %>
+                <td>
+                <%= link_to promote_to_maneger_admin_admin_path(user) do %>
+                <button class="btn btn-xs green" >Promote to Maneger</button>
+                <% end %>
+                </td>
+             <%else%>
+                <td>
+                <%= link_to promote_to_maneger_admin_admin_path(user) do %>
+                <button class="btn btn-xs red" >Demote to User</button>
+                <% end %>
+                </td>               
+             <% end %>
+           <%else%>
+           <td>
+            <button class="btn btn-xs red" >User Disbale</button>
+           <% end %>
+         </td>
+          </tr>
         <%end%>
       <% end %>
     </tbody>
