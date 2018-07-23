@@ -1,0 +1,26 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+  <div class="row">
+    <div class="col-md-6">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"> <%= link_to 'Home', admin_root_path, data: { toggle: 'tab'} %></li>
+            
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Projects</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Clients</a></li>            
+<!--             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
+        </ul>
+
+      <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">.</div>
+            <div role="tabpanel" class="tab-pane" id="profile">.</div>
+            <div role="tabpanel" class="tab-pane" id="messages">.</div>
+            <div role="tabpanel" class="tab-pane" id="settings">.</div>
+        </div>
+    </div>
+  </div>
