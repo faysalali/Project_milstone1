@@ -7,19 +7,16 @@
          <label><b><%= f.label :email %></b></label><br />
          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control margin-bottom' %>
       </div>
-              
       <div class="field">
         <label><b><%= f.label :password %></b></label><br />
         <%= f.password_field :password, autocomplete: "off", class: 'form-control margin-bottom'%>
       </div>
-
       <% if devise_mapping.rememberable? -%>
         <div class="field">
           <%= f.check_box :remember_me %>
           <label><b><%= f.label :remember_me %></b></label>
         </div>
       <% end -%>
-
       <div class="actions">
         <label><b><%= f.submit "Log in"%></b></label>
       </div>

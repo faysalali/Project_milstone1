@@ -1,68 +1,24 @@
-<!DOCTYPE html>
-<%= render "homepage/header" %>
-<%= render "admintab" %>
 <div class="container">
-  <h2>WorkSpace</h2>            
+  <h2>WorkSpace</h2>
   <table class="table table-bordered">
-   
     <thead>
       <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Gender</th>
         <th>status</th>
-        <th>Manegerial Rights</th>
+        <th>Managerial Rights</th>
       </tr>
     </thead>
     <tbody>
       <% @user.each do |user|%>
-        <% if !user.admin? %>
-          <tr>
+        <tr class="text-size">
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <% if user.gender == false %>
-            <td>Male</td>
-          <% else %>
-            <td>Male</td>
-          <% end %>
-          <% if user.enable? %>
-            <td>
-              <%= link_to change_status_admin_admin_path(user) do %>
-              <button class="btn btn-xs red" >Enable</button>
-              <% end %>
-            </td>
-          <% else %>
-            <td>
-              <%= link_to change_status_admin_admin_path(user) do %>
-              <button class="btn btn-xs green" >Disable</button>
-              <% end %>
-            </td>
-           <% end %>
-           <%if user.enable? %>
-             <%if user.user? %>
-                <td>
-                <%= link_to promote_to_maneger_admin_admin_path(user) do %>
-                <button class="btn btn-xs green" >Promote to Maneger</button>
-                <% end %>
-                </td>
-             <%else%>
-                <td>
-                <%= link_to promote_to_maneger_admin_admin_path(user) do %>
-                <button class="btn btn-xs red" >Demote to User</button>
-                <% end %>
-                </td>               
-             <% end %>
-           <%else%>
-           <td>
-            <button class="btn btn-xs red" >User Disbale</button>
-           <% end %>
-         </td>
-          </tr>
-        <%end%>
+          <td><%= return_gender(user) %></td>
+          <td><%= show_status(user) %></td>
+          <td><%= show_role(user) %></td>
       <% end %>
     </tbody>
   </table>
 </div>
-
-
-

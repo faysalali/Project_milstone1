@@ -7,38 +7,103 @@
   font-size: 60px;
   margin-top: 40px;
 }
-.center_div{
+.center_div {
   margin: 0 auto;
-  width:60% /* value of your choice which suits your alignment */
+  width:60%;
 }
 .margin-bottom {
   margin-bottom:15px;
+  font-size: 20px;
 }
 .btn.green:not(.btn-outline) {
   color: #FFF;
   background-color: #32c5d2;
   border-color: #32c5d2;
+  font-size: 20px;
 }
 .btn.red:not(.btn-outline) {
   color: #FF0000;
   background-color: #32c5d2;
   border-color: #32c5d2;
+  font-size: 20px;
 }
 .btn-xs, .btn-group-xs > .btn {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+  font-size: 20px;
 }
-.nav-tabs { border-bottom: 2px solid #DDD; }
-    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
-    .nav-tabs > li > a { border: none; color: #666; }
-        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #4285F4 !important; background: transparent; }
-        .nav-tabs > li > a::after { content: ""; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
-    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
-.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
-.tab-pane { padding: 15px 0; }
-.tab-content{padding:20px}
-
-.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
-body{ background: #EDECEC; padding:50px}
+.nav-tabs {
+  border-bottom: 2px solid #DDD;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  border-width: 0;
+}
+.nav-tabs > li > a {
+  border: none; color: #666;
+}
+.nav-tabs > li.active > a, .nav-tabs > li > a:hover {
+   border: none; color: #4285F4 !important; background: transparent;
+ }
+.nav-tabs > li > a::after {
+  content: ""; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0);
+}
+.nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after {
+  transform: scale(1);
+}
+.tab-nav > li > a::after {
+ background: #21527d none repeat scroll 0% 0%; color: #fff;
+}
+.tab-pane {
+  padding: 15px 0;
+  font-size: 20px;
+}
+.tab-content {
+  padding:20px;
+}
+.card {
+  background: #FFF none repeat scroll 0% 0%;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+body {
+  background: #EDECEC;
+}
+.btn.btn-default.creat-client-btn {
+  background: #354790;
+  border-color: #354790;
+  color: #fff;
+  font-size: 20px
+}
+.pull-right {
+  float: right;
+}
+/*Clients css classes start*/
+btn.btn-default.book-a-lesson-btn {
+  background: #354790;
+  border-color: #354790;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px
+}
+.box {
+  width: 360px;
+}
+.submit-button {
+  margin-top: 20px;
+}
+.alert-color {
+  color: #31708f;
+  font-size: 20px;
+  align-content: center;
+}
+.text-size {
+  font-size: 20px
+}
+.client-button {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  font-size: 25px;
+}
