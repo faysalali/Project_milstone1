@@ -18,7 +18,4 @@ module AdminHelper
       link_to "Enable", change_status_admin_admin_path(user), id: "refresh-btn", class: 'btn btn-xs green'
     end
   end
-  def return_gender(user)
-    user.gender ? 'Female' : 'Male'
-  end
 end

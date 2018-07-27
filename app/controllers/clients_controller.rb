@@ -39,6 +39,7 @@ class ClientsController < ApplicationController
       render 'edit'
     end
   end
+  
   private
   def client_params
     params.require(:client).permit(:name, :email, :country)

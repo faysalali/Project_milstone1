@@ -26,4 +26,7 @@ class User < ApplicationRecord
   def change_role
     self.user? ? self.manager! : self.user!
   end
+  def isgender
+    self.gender ? 'Female' : 'Male'
+  end
 end
