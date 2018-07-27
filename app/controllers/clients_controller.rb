@@ -9,12 +9,11 @@ class ClientsController < ApplicationController
   
   def create
     @client = Client.new(client_params)
-      if @client.save
-        flash[:success] = "Client created successfully!"
-        redirect_to clients_path
-      else
-        render 'new'
-      end
+    if @client.save
+      redirect_to clients_path, alert: "Client created successfully!"
+    else
+      render 'new'
+    end
   end
   
   def show
