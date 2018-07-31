@@ -1,8 +1,10 @@
-<ul class="nav navbar-nav navbar-right">
-  <li>
-    <%= link_to "Sign Up", new_user_registration_path, class: 'glyphicon glyphicon-user' %>
+<ul class="nav navbar-nav navbar-right line-height ">
+  <li class = "mt-3">
+    <%= link_to new_user_registration_path do %>
+      <span class="glyphicon glyphicon-user"></span> Sign Up
+    <% end %>
   </li>
   <li>
-    <%= link_to "Login", new_user_session_path, class: 'glyphicon glyphicon-user' %>
+    <%= link_to "Login", new_user_session_path, class: 'glyphicon glyphicon-login' %>
   </li>
 </ul>
