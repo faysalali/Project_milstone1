@@ -1,21 +1,24 @@
 class Admin::AdminController < Admin::BaseController
-  before_action :find_user_by_id, only: [:change_status, :promote_to_manager]
-  def find_user_by_id
-    @user = User.find(params[:id])
-  end
+  before_action :set_user, only: [:update_status, :update_role]
   
   def index
-    @user = User.notadmin
+    @users = User.not_admin
     @clients = Client.all
   end
   
-  def change_status
-    @user.enable_disable()
+  def update_status
+    @user.update_status()
     redirect_to admin_root_path
   end
   
-  def promote_to_manager
-    @user.change_role()
+  def update_role
+    @user.update_role()
     redirect_to admin_root_path
+  end
+  
+  private
+  
+    def set_user
+    @user = User.find(params[:id])
   end
 end
