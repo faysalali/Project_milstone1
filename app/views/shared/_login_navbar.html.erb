@@ -13,13 +13,22 @@
   </li>
 </ul>
 <ul class="nav navbar-nav navbar-left">
-  <li><%= link_to 'Home', root_path, class: 'glyphicon glyphicon-home'%></li>
+  <li>
+    <%= link_to root_path do %>
+      <span class="glyphicon glyphicon-home"></span> Home
+    <% end %>
+  </li>
+  
   <% if current_user.admin? %>
     <li>
-      <%= link_to "Clients", clients_path, class: 'glyphicon glyphicon-user' %>
+      <%= link_to clients_path do %>
+        <span class="glyphicon glyphicon-user"></span> Client
+      <% end %>
     </li>
     <li>
-      <%= link_to "Users", admin_root_path, class: 'glyphicon glyphicon-user' %>
+      <%= link_to admin_root_path do %>
+        <span class="glyphicon glyphicon-user"></span> User
+      <% end %>
     </li>
   <% end %>
 </ul>
