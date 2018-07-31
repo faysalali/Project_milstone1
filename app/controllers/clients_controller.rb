@@ -1,6 +1,8 @@
 class ClientsController < ApplicationController
+  before_action :find_client, only: [:show, :destroy, :edit, :update]
+  
   def index
-    @client = Client.all
+    @clients = Client.all
   end
   
   def new
@@ -10,37 +12,32 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
-      redirect_to clients_path, alert: "Client created successfully!"
+      redirect_to clients_path, success: "Client created successfully!"
     else
       render 'new'
     end
   end
   
-  def show
-    @client = Client.find(params[:id])
-  end
-  
   def destroy
-    @client = Client.find(params[:id])
     @client.destroy
     redirect_to clients_path
   end
   
-  def edit
-    @client = Client.find(params[:id])
-  end
-  
   def update
-    @client = Client.find(params[:id])
     if @client.update(client_params)
-      redirect_to clients_path
+      redirect_to clients_path, success: "Client updated successfully!"
     else
       render 'edit'
     end
   end
   
   private
+  
   def client_params
     params.require(:client).permit(:name, :email, :country)
+  end
+  
+  def find_client
+    @client = Client.find(params[:id])
   end
 end
