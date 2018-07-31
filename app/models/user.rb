@@ -5,25 +5,23 @@ class User < ApplicationRecord
   enum role: [:user, :admin, :manager]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  scope :notadmin, -> { where.not(role: :admin) }
+  scope :not_admin, -> { where.not(role: :admin) }
+  has_attached_file :image, styles: { medium: "100x100>", thumb: "45x45#" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def active_for_authentication?
     super && enable?
   end
   
   def inactive_message
-    if enable?
-       super
-    else
-      :not_approved
-    end
+    enable? ? super : :not_approved
   end
   
-  def enable_disable
+  def update_status
     self.disable? ? self.enable! : self.disable!
   end
   
-  def change_role
+  def update_role
     self.user? ? self.manager! : self.user!
   end
   def isgender

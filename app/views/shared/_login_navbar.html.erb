@@ -1,4 +1,8 @@
 <ul class="nav navbar-nav navbar-right">
+  <li class="w-color">
+    <%= image_tag current_user.image.url(:thumb), class: 'img img-circle' %>
+    <%= current_user.name.capitalize %>
+  </li>
   <li>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
   </li>

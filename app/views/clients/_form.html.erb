@@ -11,15 +11,11 @@
       </ul>
     </div>
   <% end %>
-  <div class="field box">
-    <label><b><div><%= f.label :name %></b></label><br />
+  <div class="field box form-group">
+    <label><b><%= f.label :name %></b></label><br />
     <%= f.text_field :name, autofocus: true, class: 'form-control margin-bottom' %>
-  </div>
-  <div class="field box">
     <label><b><%= f.label :email %></b></label><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control margin-bottom' %>
-  </div>
-  <div class="field">
     <label><b><%= f.label :country %></b></label><br />
     <%=  f.country_select :country , class: 'form-control margin-bottom' %>
   </div>
