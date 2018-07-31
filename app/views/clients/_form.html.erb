@@ -1,6 +1,6 @@
 <%= form_for @client do |f| %>
   <%= render 'shared/error' %>
-  <div class="field box form-group">
+  <div class="box form-group">
     <label><b><%= f.label :name %></b></label><br />
     <%= f.text_field :name, autofocus: true, class: 'form-control margin-bottom' %>
     <label><b><%= f.label :email %></b></label><br />

@@ -4,36 +4,36 @@
       <h2>Edit <%= resource_name.to_s.humanize %></h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put}) do |f| %>
         <%= devise_error_messages! %>
-        <div class="field">
+        <div class="form-group">
           <div>
             <%= f.label :name, class: 'margin-bottom' %><br />
             <%= f.text_field :name, autofocus: true ,class: 'form-control margin-bottom' %>
           </div>
         </div>
-        <div class="field">
+        <div class="form-group">
           <div>
             <%= f.label :image, class: 'margin-bottom' %><br />
             <%= f.file_field :image %>
           </div>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= f.label :gender, class: 'margin-bottom' %><br />
           <div><%= f.check_box :gender, {}, false %> <%= f.label :gender, "Male" %></div>
           <div><%= f.check_box :gender, {}, true %> <%= f.label :gender, "Female" %></div>
         </div>
-        <div class="field">
+        <div class="form-group">
           <div><%= f.label :date_of_birth, class: 'margin-bottom' %><br />
             <%= f.date_select :date_of_birth, start_year: 1900 %>
           </div>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= f.label :email, class: 'margin-bottom' %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control margin-bottom' %>
         </div>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-        <div class="field">
+        <div class="form-group">
             <%= f.label :password, class: 'margin-bottom' %> <i>(leave blank if you don't want to change it)</i><br />
             <%= f.password_field :password, autocomplete: "off" %>
             <% if @minimum_password_length %>
@@ -41,11 +41,11 @@
               <em><%= @minimum_password_length %> characters minimum</em>
             <% end %>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= f.label :password_confirmation, class: 'margin-bottom' %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= f.label :current_password, class: 'margin-bottom'%> <i>(we need your current password to confirm your changes)</i><br />
           <%= f.password_field :current_password, autocomplete: "off" %>
         </div>

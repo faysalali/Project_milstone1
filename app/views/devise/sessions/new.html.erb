@@ -3,16 +3,16 @@
     <div class="col-lg-3">
       <h2>Log in</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
+      <div class="form-group"">
          <label><b><%= f.label :email %></b></label><br />
          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control margin-bottom' %>
       </div>
-      <div class="field">
+      <div class="form-group"">
         <label><b><%= f.label :password %></b></label><br />
         <%= f.password_field :password, autocomplete: "off", class: 'form-control margin-bottom'%>
       </div>
       <% if devise_mapping.rememberable? -%>
-        <div class="field">
+        <div class="form-group"">
           <%= f.check_box :remember_me %>
           <label><b><%= f.label :remember_me %></b></label>
         </div>
