@@ -7,7 +7,8 @@
         <th>Email</th>
         <th>Gender</th>
         <th>status</th>
-        <th>Managerial Rights</th>
+        <th>Role</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,8 +18,26 @@
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= user.isgender %></td>
-          <td><%= show_status(user) %></td>
-          <td><%= show_role(user) %></td>
+          <td>
+            <span class="label-size label label-<%= user_status_class(user) %>"><%= user.status.capitalize %></span>
+          </td>
+          <td>
+            <span class="label-size label label-<%= user_role_class(user) %>"><%= user.role.capitalize %></span>
+          </td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-default">Action</button>
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <% if user.enable? %>
+                  <li><%= link_to "Change role", update_role_admin_user_path(user) %></li>
+                <% end %>
+                <li><%= link_to "Change status", update_status_admin_user_path(user) %></li>
+              </ul>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>
