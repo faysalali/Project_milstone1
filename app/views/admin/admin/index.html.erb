@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>WorkSpace</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>status</th>
+        <th>Managerial Rights</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user|%>
+    
+        <tr class="text-size">
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.isgender %></td>
+          <td><%= show_status(user) %></td>
+          <td><%= show_role(user) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

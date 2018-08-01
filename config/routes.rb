@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
- root 'homepage#index'
+  resources :clients
+  root 'homepage#index'
+  
+  namespace :admin do
+    root to:'admin#index'
+    
+    resources :users do
+      member do
+        get 'update_status'
+        get 'update_role'
+      end
+    end
+    
+  end
 end

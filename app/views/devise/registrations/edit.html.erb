@@ -1,59 +1,58 @@
-<div class="container ">
-  <div class="row">
-    <div class="col-lg-3">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
-      <div class="field">
-       <div><%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true ,class: 'form-control margin-bottom'%></div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put}) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="container ">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <div class="form-group">
+      <div>
+        <%= f.label :name, class: 'margin-bottom' %>
+        <%= f.text_field :name, autofocus: true , placeholder: 'Enter Name', class: 'form-control margin-bottom' %>
       </div>
-            
-      <div class="field">
-        <div><%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %> </div>
-        <div><%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> </div>
+    </div>
+    <div class="form-group">
+      <div>
+        <%= f.label :image, class: 'margin-bottom' %>
+        <%= f.file_field :image %>
       </div>
-            
-      <div class="field">
-        <div><%= f.label :date_of_birth %><br />
-        <%= f.date_select :date_of_birth, :start_year => 1900%></div>
+    </div>
+    <div class="form-group">
+      <%= f.label :gender, class: 'margin-bottom' %>
+      <div><%= f.check_box :gender, {}, false %> <%= f.label :gender, "Male" %></div>
+      <div><%= f.check_box :gender, {}, true %> <%= f.label :gender, "Female" %></div>
+    </div>
+    <div class="form-group">
+      <div><%= f.label :date_of_birth, class: 'margin-bottom' %>
+        <%= f.date_select :date_of_birth, start_year: 1900 %>
       </div>
-            
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control margin-bottom'%>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, class: 'margin-bottom' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter Email', class: 'form-control margin-bottom' %>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :password, class: 'margin-bottom' %> <i>(leave blank if you don't want to change it)</i>
+      <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter password', class: 'form-control margin-bottom' %>
+      <% if @minimum_password_length %>
+        <em><%= @minimum_password_length %> characters minimum</em>
       <% end %>
-
-      <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Update" %>
-      </div>
-      <% end %>
-      <h3>Cancel my account</h3>
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-      <%= link_to "Back", :back %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, class: 'margin-bottom' %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm paswword', class: 'form-control margin-bottom' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :current_password, class: 'margin-bottom'%> <i>(we need your current password to confirm your changes)</i>
+      <%= f.password_field :current_password, autocomplete: "off", placeholder: 'Current password', class: 'form-control margin-bottom' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update", class: 'btn btn-primary btn-md margin-bottom' %>
     </div>
   </div>
+<% end %>
+<div class="container">
+  <h3>Cancel my account</h3>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger btn-md margin-bottom', data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <%= link_to "Back", :back %>
 </div>
