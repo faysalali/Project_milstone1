@@ -1,0 +1,7 @@
+<% if @payment.errors.blank? %>
+  $('#payment-modal').modal('hide');
+  $('table tbody').append('<%= j render "payment", payment: @payment %>');
+<% else %>
+  // TODO: show the errors in the UI
+  puts "not submitted."
+<% end %>

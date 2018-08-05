@@ -1,0 +1,14 @@
+<div id="payment-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_for [@project, @payment], remote: true do |f| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <%= f.number_field :amount, class: 'form-control', placeholder: 'Enter Amount' %>
+        </div>
+        <%= f.submit class: 'btn btn-parimary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

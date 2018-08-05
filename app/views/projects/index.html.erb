@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-11">
+      <div class="text-right">
+          <%= link_to "Create New Project", new_project_path, id: "refresh-btn", class: 'btn btn-primary btn-lg' %>
+      </div>
+    </div>
+  </div>
+  <h2>Pojects</h2>
+  <table class="table table-bordered text-size">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>view Detail</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.status.capitalize %></td>
+          <td>
+            <%= link_to 'View Detail', project_path(project) %>
+            <%= link_to '/ Edit Project', edit_project_path(project) %>
+          </td>
+          <td>
+            <% if !project.completed? %>
+            <%= link_to 'Mark Complete', mark_complete_project_path(project), class: 'btn btn-success btn-md'%>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
