@@ -19,10 +19,20 @@
           <td class="text-primary">Status</td>
           <td><%= @project.status %></td>
         </tr>
-      </thead>
+       </thead>
     </table>
     <h2 class="text-primary"><strong> Description </strong> </h2>
     <p><%= @project.description %></p>
+    <h2 class="text-primary"><strong> Attachments </strong> </h2>
+    <% @attachments.each do |attachment| %>
+      <div class="col-md-4">
+        <a href="<%= attach.file.url %>" download="" class="no-underline">
+          <li class="file-font">
+            <%= attachment.file_file_name.capitalize %>
+          </li>
+        </a>
+      </div>
+    <% end %>
     <h2 class="text-primary"><strong> Technical Team </strong> </h2>
     <table class="table table-bordered text-size">
       <thead>
@@ -32,27 +42,29 @@
       </thead>
       <tbody>
         <% @project.users.each do |user| %>
-        <tr>
-          <td><%= user.name %></td>
-        </tr>
+          <tr>
+            <td><%= user.name %></td>
+          </tr>
+        <% end %>
       </tbody>
-      <% end %>
     </table>
     <div class="text-right">
       <%= link_to "Add payment", new_project_payment_path(@project), remote: true, class: 'btn btn-primary btn-lg' %>
     </div>
     <h2 class="text-primary"><strong> Payment Detail </strong> </h2>
   </div>
-  <table class="table table-bordered text-size">
-    <thead>
-      <tr>
-        <th>Payment</th>
-        <th>Date</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @project.payments.ordered %>
-    </tbody>
-  </table>
+  <div id="payments">
+    <table class="table table-bordered text-size">
+      <thead>
+        <tr>
+          <th>Payment</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @project.payments.ordered %>
+      </tbody>
+    </table>
+  </div>
 </div>
