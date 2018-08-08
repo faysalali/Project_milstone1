@@ -1,5 +1,5 @@
-<tr>
+<tr id="payments_<%= payment.id %>">
   <td><%= payment.amount %></td>
-  <td><%= payment.created_at %></td>
-  <td><%= link_to 'Edit Payment', edit_project_payment_path(payment.project, payment) %></td>
+  <td><%= set_date(payment.created_at)%></td>
+  <td><%= link_to 'Edit Payment', edit_project_payment_path(payment.project, payment), remote: true %></td>
 </tr>
