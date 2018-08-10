@@ -1,42 +1,44 @@
-<%= nested_form_for @project do |f| %>
-  <%= render 'shared/error', object: @project %>
-  <p>
-    <%= f.label :Title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :Description %><br>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :Price %><br>
-    <%= f.text_field :price %>
-  </p>
-  <p>
-    <%= f.label :Status %><br>
-    <%= f.select :status, Project.statuses.keys.first(2) %>
-  </p>
-  <p>
-    <%= f.label :Date %><br>
-    <%= f.text_field :end_date, data: { behaviour: :datepicker }, autocomplete: :off %>
-  </p>
-  <p>
-    <%= f.label :Client %><br>
-    <%= f.select :client_id, Client.all.map { |u| [u.name, u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
-  </p>
-  <p>
-    <%= f.label :Users %><br>
-    <%= f.select  :user_ids, User.all.map { |u| [u.name, u.id] }, { prompt: 'Select User' }, { multiple: true, class: 'chosen-select manage-height', placeholder: 'Select'} %>
-  </p>
-  <h2>Add Attachments</h2>
-  <p>
-    <%= f.fields_for :attachments do |a| %>
-      <%= a.file_field :file %>
-      <%= a.link_to_remove "Remove this File" %>
-    <% end %>
-    <p><%= f.link_to_add "Add a File", :attachments %></p>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="container">
+  <%= nested_form_for @project do |f| %>
+    <%= render 'shared/error', object: @project %>
+    <div class="form-group">
+      <%= f.label :Title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Price %><br>
+      <%= f.text_field :price %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Status %><br>
+      <%= f.select :status, Project.statuses.keys.first(2) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Date %><br>
+      <%= f.text_field :end_date, data: { behaviour: :datepicker }, autocomplete: :off %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Client %><br>
+      <%= f.select :client_id, Client.all.map { |u| [u.name, u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Users %><br>
+      <%= f.select  :user_ids, User.all.map { |u| [u.name, u.id] }, { prompt: 'Select User' }, { multiple: true, class: 'chosen-select manage-height', placeholder: 'Select'} %>
+    </div>
+    <div class="form-group">
+      <h2>Add Attachments</h2>
+      <%= f.fields_for :attachments do |a| %>
+        <%= a.file_field :file %>
+        <%= a.link_to_remove "Remove this File" %>
+      <% end %>
+      <%= f.link_to_add "Add a File", :attachments %>
+    </div>
+    <div class="actions submit-button">
+      <label><b> <%= f.submit "Create", class: 'btn btn-primary active' %></b></label>
+    </div>
+  <% end %>
+</div>
