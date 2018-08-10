@@ -14,7 +14,6 @@
   </div>
   <h2>Pojects</h2>
   <table class="table table-bordered text-size">
-    <thead>
       <tr>
         <th>Title</th>
         <th>Status</th>
@@ -23,7 +22,6 @@
         <th>Comments</th>
         <th>Time</th>
       </tr>
-    </thead>
     <tbody>
       <% @projects.each do |project| %>
         <tr>
@@ -34,18 +32,14 @@
             <%= link_to '/ Edit Project', edit_project_path(project) %>
           </td>
           <td>
-            <% if !project.completed? %>
-            <%= link_to 'Mark Complete', mark_complete_project_path(project), class: 'btn btn-success btn-md' %>
-            <% end %>
+            <%= link_to 'Mark Complete', mark_complete_project_path(project), class: 'btn btn-success btn-md' unless project.completed?  %>
           </td>
           <td>
             <%= link_to 'Add Comment', new_project_comment_path(project), class: 'btn btn-success btn-md', remote: true %>
           </td>
-          <% if @project_ids.include? project.id %>
-              <td>
-                <%= link_to 'Add Time', new_project_time_log_path(project), class: 'btn btn-primary btn-md', remote: true %>
-              </td>
-          <% end %>
+          <td>
+            <%= link_to 'Add Time', new_project_time_log_path(project), class: 'btn btn-primary btn-md', remote: true unless !@project_ids.include? project.id %>
+          </td>
         </tr>
       <% end %>
     </tbody>
