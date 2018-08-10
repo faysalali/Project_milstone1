@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :mark_complete, :update]
+  before_action :set_project, only: [:edit, :mark_complete, :update]
 
   def index
-    @projects = Project.all
-    @user_projects = current_user.projects
+    @projects = Project.search(params[:search])
+    @project_ids = current_user.project_ids
   end
 
   def show
+    @project = Project.includes(comments: :user).find params[:id]
     @comments = @project.comments
     @attachments = @project.attachments
   end
