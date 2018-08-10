@@ -29,7 +29,7 @@ class User < ApplicationRecord
     self.user? ? self.manager! : self.user!
   end
 
-  def isgender
+  def gender_description
     self.gender ? 'Female' : 'Male'
   end
 end
