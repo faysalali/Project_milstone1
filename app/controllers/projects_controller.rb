@@ -15,12 +15,13 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.attachments.build
+  
   end
 
   def create
     @project = Project.new(project_params)
     if @project.save
-      redirect_to projects_path, success: "Client created successfully!"
+      redirect_to projects_path, success: "Project created successfully!"
     else
       render 'new'
     end
