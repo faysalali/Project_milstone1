@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:show, :destroy, :edit, :update]
+  before_action :set_client, only: [:destroy, :edit, :update]
 
   def index
     @clients = Client.search(params[:search])
@@ -7,6 +7,10 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
+  end
+
+  def show
+    @client = Client.includes(:projects).find params[:id]
   end
 
   def create
