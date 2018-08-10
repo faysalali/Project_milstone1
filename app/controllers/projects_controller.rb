@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.attachments.build
-  
   end
 
   def create
