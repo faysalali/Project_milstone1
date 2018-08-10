@@ -7,4 +7,8 @@ module ApplicationHelper
         when :alert then "alert alert-error"
     end
   end
+
+  def set_date(date)
+    date.strftime("%Y-%m-%d")
+  end
 end
