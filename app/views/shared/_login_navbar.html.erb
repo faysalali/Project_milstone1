@@ -26,7 +26,5 @@
       <%= render 'shared/manager_show' %>
     </li>
   <% end %>
-  <% if current_user.manager? %>
-    <%= render 'shared/manager_show' %>
-  <% end %>
+  <% if current_user.manager? %><%= render 'shared/manager_show' %><% end %>
 </ul>
