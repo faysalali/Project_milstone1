@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.includes(comments: :user).find params[:id]
-    @comments = @project.comments
+    @comments = @project.comments.ordered
     @attachments = @project.attachments
   end
 
