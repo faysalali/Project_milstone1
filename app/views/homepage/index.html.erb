@@ -1,5 +1,13 @@
 <div class="container">
   <div class="col-md-offset-2">
     <h3 class="style">Project Management System</h3>
+    <h2>Payments in Current Month against a project<h2>
+    <%= line_chart charts_current_month_payments_path %>
+    <h2>Timelogs in Current Month against a project<h2>
+    <%= line_chart charts_current_month_timelogs_path %>
+    <h2>Payments in Current year <h2>
+    <%= line_chart charts_current_year_payments_path %>
+    <h2>Timelogs in Current year<h2>
+    <%= line_chart charts_current_year_timelogs_path %>
   </div>
 </div>

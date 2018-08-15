@@ -38,4 +38,11 @@ Rails.application.routes.draw do
     resources :comments
     resources :time_logs, shallow: true
   end
+
+  namespace 'charts' do
+    get 'current_month_payments'
+    get 'current_month_timelogs'
+    get 'current_year_payments'
+    get 'current_year_timelogs'
+  end
 end
