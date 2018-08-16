@@ -1,0 +1,13 @@
+<div id="comment_<%= comment.id %>">
+  <%= image_tag comment.user.image.url(:thumb), class: 'img img-circle' %>
+  <p class="text-primary"><%= comment.user.name.capitalize %></p>
+  <p class="text-muted"><%= set_date (comment.created_at) %></p>
+  <p><%= comment.body %></p>
+  <div class="edit">
+    <% if current_user == comment.user %>
+      <%= link_to "Edit", edit_project_comment_path(@project, comment), remote: true %> |
+      <%= link_to "Delete", [@project, comment], method: :delete, data: { confirm: 'Are You Sure?' }, remote: true %>
+    <% end %>
+  </div>
+  <hr />
+</div>

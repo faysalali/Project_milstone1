@@ -1,0 +1,4 @@
+<% if @payment.errors.blank? %>
+  $('#payment-modal.in').modal('hide');
+  $('#payments_<%= @payment.id %>').replaceWith('<%= j render @payment %>');
+<% end %>

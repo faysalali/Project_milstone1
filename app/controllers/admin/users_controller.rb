@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:update_status, :update_role]
   
   def update_status

@@ -1,0 +1,4 @@
+<% if @payment.errors.blank? %>
+  $('#payment-modal.in').modal('hide');
+  $('#payments table tbody').prepend('<%= j render "payment", payment: @payment %>');
+<% end %>

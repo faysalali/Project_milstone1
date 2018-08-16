@@ -1,7 +1,7 @@
 <ul class="nav navbar-nav navbar-right">
-  <li class="w-color mt-3">
+  <li class="w-color m-t-1">
     <%= image_tag current_user.image.url(:thumb), class: 'img img-circle' %>
-    <%= current_user.name.capitalize %>
+    <%= current_user.name %>
   </li>
   <li>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
@@ -18,17 +18,13 @@
       <span class="glyphicon glyphicon-home"></span> Home
     <% end %>
   </li>
-  
   <% if current_user.admin? %>
-    <li>
-      <%= link_to clients_path do %>
-        <span class="glyphicon glyphicon-user"></span> Client
-      <% end %>
-    </li>
     <li>
       <%= link_to admin_root_path do %>
         <span class="glyphicon glyphicon-user"></span> User
       <% end %>
+      <%= render 'shared/manager_show' %>
     </li>
   <% end %>
+  <% if current_user.manager? %><%= render 'shared/manager_show' %><% end %>
 </ul>

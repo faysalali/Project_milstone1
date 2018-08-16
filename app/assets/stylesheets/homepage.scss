@@ -1,20 +1,21 @@
-// Place all the styles related to the homepage controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .style {
   color: blue;
   font-size: 60px;
   margin-top: 40px;
 }
 
-.center_div {
+.center-div {
   margin: 0 auto;
-  width:60%;
+  width: 60%;
+}
+
+.manage-height {
+  height: 120px !important;
+  width: 120px;
 }
 
 .margin-bottom {
-  margin-bottom:15px;
+  margin-bottom: 15px;
   font-size: 20px;
 }
 
@@ -52,7 +53,7 @@
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li > a:hover {
-   border: none; color: #4285F4 !important; background: transparent;
+  border: none; color: #4285F4 !important; background: transparent;
 }
 
 .nav-tabs > li > a::after {
@@ -64,7 +65,7 @@
 }
 
 .tab-nav > li > a::after {
- background: #21527d none repeat scroll 0% 0%; color: #fff;
+  background: #21527d none repeat scroll 0% 0%; color: #fff;
 }
 
 .tab-pane {
@@ -73,7 +74,7 @@
 }
 
 .tab-content {
-  padding:20px;
+  padding: 20px;
 }
 
 .card {
@@ -85,6 +86,7 @@
 body {
   background: #EDECEC;
 }
+
 .btn.btn-default.creat-client-btn {
   background: #354790;
   border-color: #354790;
@@ -95,6 +97,7 @@ body {
 .pull-right {
   float: right;
 }
+
 /*Clients css classes start*/
 btn.btn-default.book-a-lesson-btn {
   background: #354790;
@@ -157,6 +160,19 @@ btn.btn-default.book-a-lesson-btn {
   margin-top: -1%;
 }
 
-.mt-3 {
+.m-t-1 {
   margin-top: 1%;
+}
+
+span.label-size {
+  font-size: 80%;
+  padding-top: 0.4em;
+}
+
+.file-font {
+  font-size: 15px;
+}
+
+.search-margin {
+  margin-bottom: 23px;
 }

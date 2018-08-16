@@ -1,12 +1,12 @@
-  <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@client.errors.count, "error") %> Unable to save:
-      </h2>
-      <ul>
-        <% @client.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(object.errors.count, "error") %> Unable to save:
+    </h2>
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

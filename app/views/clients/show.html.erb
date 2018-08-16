@@ -1,4 +1,28 @@
-<h2><% @client.name %> </h2>
-<h2>Current Project</h2>
-<h2>Client Previous Projects</h2>
-
+<div class="container">
+  <div class=" col-md-12 col-lg-12 ">
+    <h2 class="text-primary"><strong>Client Info</strong> </h2>
+    <table class="table table-bordered text-size">
+      <tr>
+        <td class="text-primary">Name</td>
+        <td><%= @client.name %></td>
+      </tr>
+      <tr>
+        <td class="text-primary">Country</td>
+        <td><%= @client.country_name %></td>
+      </tr>
+    </table>
+    <h2 class="text-primary"><strong>Client Projects</strong> </h2>
+    <table class="table table-bordered text-size">
+      <tr>
+        <th>Name</th>
+        <th>status</th>
+      </tr>
+      <% @client.projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.title, project_path(project) %></td>
+          <td><%= project.status %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

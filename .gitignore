@@ -17,3 +17,8 @@
 /yarn-error.log
 
 .byebug_history
+
+/public/system/*
+/db/sphinx/*
+/config/development.sphinx.conf
+app/assets/javascripts/highcharts.js
